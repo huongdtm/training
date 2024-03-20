@@ -20,7 +20,10 @@ public class SQSApplication {
 		MailService mailService = context.getBean(MailService.class);
 		WebhookService webhookService = context.getBean(WebhookService.class);
 
-		// sqsService.sendMessageToQueue(queueUrl, "msg send from app");
+		// Send Message To Queue.
+		sqsService.sendMessageToQueue(queueUrl, "msg send from app");
+
+		// Receive Messages From Queue.
 		List<Message> msgList = sqsService.receiveMessagesFromQueue(queueUrl).getMessages();
 		String body = "";
 
